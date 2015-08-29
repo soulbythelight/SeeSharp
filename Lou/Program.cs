@@ -17,7 +17,7 @@ namespace Lou
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TapID());
+            Application.Run(new LogIn());
         }
     }
 } 

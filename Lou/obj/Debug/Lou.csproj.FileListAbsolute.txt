@@ -7,5 +7,6 @@ C:\Users\Creatives\Documents\Visual Studio 2013\Projects\Lou\Lou\bin\Debug\MySql
 C:\Users\Creatives\Documents\Visual Studio 2013\Projects\Lou\Lou\obj\Debug\Lou.LogIn.resources
 C:\Users\Creatives\Documents\Visual Studio 2013\Projects\Lou\Lou\obj\Debug\Lou.csproj.GenerateResource.Cache
 C:\Users\Creatives\Documents\Visual Studio 2013\Projects\Lou\Lou\obj\Debug\Lou.TapID.resources
-C:\Users\Creatives\Documents\Visual Studio 2013\Projects\Lou\Lou\obj\Debug\Lou.csprojResolveAssemblyReference.cache
 C:\Users\Creatives\Documents\Visual Studio 2013\Projects\Lou\Lou\obj\Debug\Lou.Properties.Resources.resources
+C:\Users\Creatives\Documents\Visual Studio 2013\Projects\Lou\Lou\obj\Debug\Lou.csprojResolveAssemblyReference.cache
+C:\Users\Creatives\Documents\Visual Studio 2013\Projects\Lou\Lou\bin\Debug\MaterialSkin.dll
