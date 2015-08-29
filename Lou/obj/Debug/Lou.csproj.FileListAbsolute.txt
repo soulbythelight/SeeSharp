@@ -10,3 +10,4 @@ C:\Users\Creatives\Documents\Visual Studio 2013\Projects\Lou\Lou\obj\Debug\Lou.T
 C:\Users\Creatives\Documents\Visual Studio 2013\Projects\Lou\Lou\obj\Debug\Lou.Properties.Resources.resources
 C:\Users\Creatives\Documents\Visual Studio 2013\Projects\Lou\Lou\obj\Debug\Lou.csprojResolveAssemblyReference.cache
 C:\Users\Creatives\Documents\Visual Studio 2013\Projects\Lou\Lou\bin\Debug\MaterialSkin.dll
+C:\Users\Creatives\Documents\Visual Studio 2013\Projects\Lou\Lou\obj\Debug\Lou.Admin.resources

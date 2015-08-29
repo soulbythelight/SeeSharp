@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin.Designer.cs">
+      <DependentUpon>Admin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administer\Query.cs" />
     <Compile Include="Detract\MySQL.cs" />
     <Compile Include="LogIn.cs">
@@ -80,6 +86,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Admin.resx">
+      <DependentUpon>Admin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LogIn.resx">
       <DependentUpon>LogIn.cs</DependentUpon>
     </EmbeddedResource>
@@ -90,6 +99,15 @@
     <EmbeddedResource Include="TapID.resx">
       <DependentUpon>TapID.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\left_arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\left_arrow1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

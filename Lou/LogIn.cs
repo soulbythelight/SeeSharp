@@ -80,47 +80,30 @@ namespace Lou
 
         private void txtUsername_TextChanged(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(txtUsername.Text))
-            {
-                //set default message in normal chars
+            if (String.IsNullOrEmpty(txtUsername.Text)) {
                 txtUsername.Text = "Account Name";
                 txtUsername.PasswordChar = Char.MinValue;
             }
-            //if the new text is different from the default message
-            //but the passwordchar is not yet on
-            if (txtUsername.PasswordChar.Equals(Char.MinValue) && txtUsername.Text.Equals("Account Name").Equals(false))
-            {
-                //take the newly added letter
+
+            if (txtUsername.PasswordChar.Equals(Char.MinValue) && txtUsername.Text.Equals("Account Name").Equals(false)) {
                 txtUsername.Text = txtpassword.Text[0].ToString();
-                //set caret at the end of the textbox
                 txtUsername.SelectionStart = 1;
-                //set the passwordchar
                 txtUsername.PasswordChar = '*';
-
-
             }
         }
 
         private void txtpassword_TextChanged_1(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(txtpassword.Text))
-            {
-                //set default message in normal chars
+            if (String.IsNullOrEmpty(txtpassword.Text)) {
+         
                 txtpassword.Text = "Password";
                 txtpassword.PasswordChar = Char.MinValue;
             }
-            //if the new text is different from the default message
-            //but the passwordchar is not yet on
-            if (txtpassword.PasswordChar.Equals(Char.MinValue) && txtpassword.Text.Equals("Password").Equals(false))
-            {
-                //take the newly added letter
+            if (txtpassword.PasswordChar.Equals(Char.MinValue) && txtpassword.Text.Equals("Password").Equals(false)) {
+           
                 txtpassword.Text = txtpassword.Text[0].ToString();
-                //set caret at the end of the textbox
                 txtpassword.SelectionStart = 1;
-                //set the passwordchar
-                txtpassword.PasswordChar = '*';
-
-                  
+                txtpassword.PasswordChar = '*';   
             }
         }
 
