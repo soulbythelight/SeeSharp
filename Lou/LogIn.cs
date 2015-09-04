@@ -23,6 +23,7 @@ namespace Lou
             Util.Animate(lblTitle, Util.Effect.Slide, 150, 180);
             Util.Animate(btnStart, Util.Effect.Slide, 150, 180);
             Util.Animate(label2, Util.Effect.Slide, 150, 180);
+            Util.Animate(lblQuote, Util.Effect.Slide, 150, 180);
             Util.Animate(panelSignIn, Util.Effect.Slide, 150, 180);
             txtUsername.Focus();
             txtUsername.Select(0, 0);
@@ -53,6 +54,7 @@ namespace Lou
                 btnStart.Refresh();
                 lblTitle.Refresh();
             }
+            Util.Animate(lblQuote, Util.Effect.Slide, 150, 180);
         }
 
         private void txtPassword_TextChanged(object sender, EventArgs e)

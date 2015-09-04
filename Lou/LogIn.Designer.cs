@@ -31,6 +31,7 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnStart = new System.Windows.Forms.Button();
             this.panelSignIn = new System.Windows.Forms.Panel();
+            this.btnSignIn = new MaterialSkin.Controls.MaterialRaisedButton();
             this.panel6 = new System.Windows.Forms.Panel();
             this.txtpassword = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -41,7 +42,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnSignIn = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.lblQuote = new System.Windows.Forms.Label();
             this.panelSignIn.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -88,6 +89,18 @@
             this.panelSignIn.Size = new System.Drawing.Size(849, 380);
             this.panelSignIn.TabIndex = 2;
             this.panelSignIn.Visible = false;
+            // 
+            // btnSignIn
+            // 
+            this.btnSignIn.Depth = 0;
+            this.btnSignIn.Location = new System.Drawing.Point(344, 271);
+            this.btnSignIn.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnSignIn.Name = "btnSignIn";
+            this.btnSignIn.Primary = true;
+            this.btnSignIn.Size = new System.Drawing.Size(155, 53);
+            this.btnSignIn.TabIndex = 9;
+            this.btnSignIn.Text = "Sign in";
+            this.btnSignIn.UseVisualStyleBackColor = true;
             // 
             // panel6
             // 
@@ -194,17 +207,18 @@
             this.label2.Text = "LILOUMIAN";
             this.label2.Visible = false;
             // 
-            // btnSignIn
+            // lblQuote
             // 
-            this.btnSignIn.Depth = 0;
-            this.btnSignIn.Location = new System.Drawing.Point(344, 271);
-            this.btnSignIn.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnSignIn.Name = "btnSignIn";
-            this.btnSignIn.Primary = true;
-            this.btnSignIn.Size = new System.Drawing.Size(155, 53);
-            this.btnSignIn.TabIndex = 9;
-            this.btnSignIn.Text = "Sign in";
-            this.btnSignIn.UseVisualStyleBackColor = true;
+            this.lblQuote.AutoSize = true;
+            this.lblQuote.Font = new System.Drawing.Font("Segoe UI Light", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQuote.ForeColor = System.Drawing.Color.SlateGray;
+            this.lblQuote.Location = new System.Drawing.Point(548, 433);
+            this.lblQuote.Name = "lblQuote";
+            this.lblQuote.Size = new System.Drawing.Size(277, 37);
+            this.lblQuote.TabIndex = 8;
+            this.lblQuote.Text = "Makes ideas into reality";
+            this.lblQuote.UseWaitCursor = true;
+            this.lblQuote.Visible = false;
             // 
             // LogIn
             // 
@@ -212,6 +226,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(1366, 768);
+            this.Controls.Add(this.panelSignIn);
+            this.Controls.Add(this.lblQuote);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel4);
@@ -219,7 +235,6 @@
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.panel5);
-            this.Controls.Add(this.panelSignIn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "LogIn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -253,5 +268,6 @@
         private System.Windows.Forms.TextBox txtpassword;
         private System.Windows.Forms.Panel panel1;
         private MaterialSkin.Controls.MaterialRaisedButton btnSignIn;
+        private System.Windows.Forms.Label lblQuote;
     }
 }

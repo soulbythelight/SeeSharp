@@ -10,8 +10,7 @@ namespace Lou
 {
     class Program
     {
-        
-        static Administer.Query SELF = new Administer.Query();
+        public int userID = 0;
         [STAThread]
         static void Main(string[] args)
         {

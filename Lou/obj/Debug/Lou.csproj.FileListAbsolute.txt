@@ -8,6 +8,5 @@ C:\Users\Creatives\Documents\Visual Studio 2013\Projects\Lou\Lou\obj\Debug\Lou.L
 C:\Users\Creatives\Documents\Visual Studio 2013\Projects\Lou\Lou\obj\Debug\Lou.csproj.GenerateResource.Cache
 C:\Users\Creatives\Documents\Visual Studio 2013\Projects\Lou\Lou\obj\Debug\Lou.TapID.resources
 C:\Users\Creatives\Documents\Visual Studio 2013\Projects\Lou\Lou\obj\Debug\Lou.Properties.Resources.resources
-C:\Users\Creatives\Documents\Visual Studio 2013\Projects\Lou\Lou\obj\Debug\Lou.csprojResolveAssemblyReference.cache
 C:\Users\Creatives\Documents\Visual Studio 2013\Projects\Lou\Lou\bin\Debug\MaterialSkin.dll
 C:\Users\Creatives\Documents\Visual Studio 2013\Projects\Lou\Lou\obj\Debug\Lou.Admin.resources
