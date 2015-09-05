@@ -54,23 +54,25 @@ namespace Lou
 
         private void Admin_Load(object sender, EventArgs e)
         {
+      
             panelMain.Location = new Point(62, 111);
             panelAddUser.Location = new Point(54, 195);
             SELF.PREPARE("localhost", "bulsu_db", "root", "");
-            serialPort1.PortName = "COM16";
-            serialPort1.BaudRate = 9600;
-            serialPort1.Parity = Parity.None;
-            serialPort1.StopBits = StopBits.One;
-            serialPort1.Handshake = Handshake.None;
+            try {
+                serialPort1.PortName = "COM16";
+                serialPort1.BaudRate = 9600;
+                serialPort1.Parity = Parity.None;
+                serialPort1.StopBits = StopBits.One;
+                serialPort1.Handshake = Handshake.None;
 
-            serialPort1.Open();
-            serialPort1.ReadTimeout = 200;
-            if (serialPort1.IsOpen)
-            {
-                DispString = "";
-                textBox1.Text = "";
-            }
-
+                serialPort1.Open();
+                serialPort1.ReadTimeout = 200;
+                if (serialPort1.IsOpen)
+                {
+                    DispString = "";
+                    textBox1.Text = "";
+                }
+            } catch (Exception me) { }
         }
 
         private void btnAddUser_Click(object sender, EventArgs e)
@@ -284,10 +286,39 @@ namespace Lou
                     SELF._command.Parameters.AddWithValue("@e", gender);
                     SELF._command.Parameters.AddWithValue("@f", File.ReadAllBytes(openFileDialog.FileName));
                     SELF._command.ExecuteNonQuery();
-                    MessageBox.Show("success");
+                    lblMessageBox.Text = "Account created :)";
+                    popUpMesssageBox();
+                    clearAllInPanelAdduser();
                 }
-            }
+            } else {
+                lblMessageBox.Text = "Complete all required fields";
+                popUpMesssageBox();
 
+            }
+        }
+        public void popUpMesssageBox()
+        {
+            Util.Animate(panelMessageBox, Util.Effect.Slide, 150, 180);
+            var t = new Timer();
+            t.Interval = 2500;
+            t.Tick += (s, a) => {
+                Util.Animate(panelMessageBox, Util.Effect.Slide, 150, 180);
+                t.Stop();
+            };
+            t.Start();
+        }
+        public void clearAllInPanelAdduser()
+        {
+            pictureBoxProfile.BackgroundImage = Lou.Properties.Resources.account;
+            txtRFID.Text = "Value";
+            txtRFID.PasswordChar = '\0';
+            txtConfirmPass.Text = "Confirm password";
+            txtConfirmPass.PasswordChar = '\0';
+            txtPassword.Text = "Password";
+            txtFirstName.Text = "First Name";
+            txtMiddleInitial.Text = "MI";
+            txtLastName.Text = "Last Name";
+            openFileDialog.FileName = null;
         }
         private void txtFirstName_Click(object sender, EventArgs e)
         {
@@ -431,10 +462,11 @@ namespace Lou
                 e.Handled = true;
             }
         }
-
         private void txtPassword_TextChanged(object sender, EventArgs e)
         {
 
         }
+
+ 
     }
 }

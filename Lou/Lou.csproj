@@ -112,6 +112,27 @@
   <ItemGroup>
     <None Include="Resources\account.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.GIF" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Adduser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UpdateUser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DTR.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Adduser1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UpdateSched.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AddSched.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
