@@ -7,18 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
- 
- 
- 
+using System.IO.Ports;
+using System.IO;
 
 namespace Lou
 {
     public partial class Admin : Form
     {
         static Administer.Query SELF = new Administer.Query();
+        protected string[] panelAddUserString = { "First Name", "MI", "Last Name", "Account name", "Password", "Confirm password", "Value" };
+        protected string gender = "";
         protected bool btnAddUserIsClick = false;
         protected bool btnViewDTRIsClick = false;
+        protected bool rfidIstap = false;
+        protected bool panelAddUserisValidated = false;
+        protected string DispString;
         public Admin()
         {
             InitializeComponent();
@@ -53,6 +56,21 @@ namespace Lou
         {
             panelMain.Location = new Point(62, 111);
             panelAddUser.Location = new Point(54, 195);
+            SELF.PREPARE("localhost", "bulsu_db", "root", "");
+            serialPort1.PortName = "COM16";
+            serialPort1.BaudRate = 9600;
+            serialPort1.Parity = Parity.None;
+            serialPort1.StopBits = StopBits.One;
+            serialPort1.Handshake = Handshake.None;
+
+            serialPort1.Open();
+            serialPort1.ReadTimeout = 200;
+            if (serialPort1.IsOpen)
+            {
+                DispString = "";
+                textBox1.Text = "";
+            }
+
         }
 
         private void btnAddUser_Click(object sender, EventArgs e)
@@ -181,23 +199,242 @@ namespace Lou
 
         private void btnOpenFile_Click(object sender, EventArgs e)
         {
-            using (var openFileDialog = new OpenFileDialog())
-            {
+
                 openFileDialog.Title = "Choose Image File";
                 openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
                 openFileDialog.Filter = "Image Files (*.bmp, *.jpg)|*.bmp;*.jpg";
                 openFileDialog.Multiselect = false;
                 if (openFileDialog.ShowDialog() == DialogResult.OK) {
-                    btnOpenFile.BackgroundImage = new Bitmap(openFileDialog.FileName);
+                    pictureBoxProfile.BackgroundImage = new Bitmap(openFileDialog.FileName);
                 }
                 // store file path in some field or textbox...
                 //textBox1.Text = openFileDialog.FileName;
-            }
+
         }
  
         private void btnTakePhoto_Click(object sender, EventArgs e)
         {
           
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
+        }
+        private void serialPort1_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
+        {
+            if (txtRFID.Text.Length >= 9) {
+                serialPort1.Close();
+            } else {
+                DispString = serialPort1.ReadExisting();
+                this.Invoke(new EventHandler(DisplayText));
+            }
+        }
+        private void DisplayText(object sender, EventArgs e)
+        {
+            txtRFID.Clear();
+            txtRFID.PasswordChar = '*';
+            txtRFID.AppendText(DispString);
+            MessageBox.Show(DispString);
+            rfidIstap = true;
+        }
+        private void btnNeedToTap_Click(object sender, EventArgs e)
+        {
+            serialPort1.DataReceived += new SerialDataReceivedEventHandler(serialPort1_DataReceived);
+        }
+        private void AddTextChangedHandler(Control parent)
+        {
+            foreach (Control c in parent.Controls) {
+                if (c.GetType() == typeof(TextBox)) {
+                    errorProvider1.SetError(c, "");
+                    foreach (string s in panelAddUserString)
+                    {
+                        if (c.Text.Equals(s, StringComparison.InvariantCulture)) {
+                            errorProvider1.SetError(c, "Please enter your " + c.Text);
+                            panelAddUserisValidated = true;
+                        }  
+                    }
+
+                    
+                } else {
+                    AddTextChangedHandler(c);
+                }
+            }
+        }
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            panelAddUserisValidated = false;
+            this.AddTextChangedHandler(panelAddUser);
+            if (!panelAddUserisValidated) {
+                String getUsername = SELF.GET_ONE("users", "account_name ='" + txtAccountName.Text + "'" , "user_rfid");
+                if(!(getUsername == "")) {
+                    SELF.PUT("users", new Dictionary<string, string>
+                            {
+                                { "user_rfid", txtRFID.Text},
+                                { "account_name", txtAccountName.Text},
+                                { "password", txtPassword.Text}
+                            }
+                         );
+                    SELF._query = @"INSERT INTO user_details(user_rfid, first_name, middle_initlal, last_name, gender, account_picture) VALUES (@a,@b,@c,@d,@e,@f)";
+                    SELF._command = new MySql.Data.MySqlClient.MySqlCommand(SELF._query, SELF._connect);
+                    SELF._command.Parameters.AddWithValue("@a", txtRFID.Text);
+                    SELF._command.Parameters.AddWithValue("@b", txtFirstName.Text);
+                    SELF._command.Parameters.AddWithValue("@c", txtMiddleInitial.Text);
+                    SELF._command.Parameters.AddWithValue("@d", txtLastName.Text);
+                    SELF._command.Parameters.AddWithValue("@e", gender);
+                    SELF._command.Parameters.AddWithValue("@f", File.ReadAllBytes(openFileDialog.FileName));
+                    SELF._command.ExecuteNonQuery();
+                    MessageBox.Show("success");
+                }
+            }
+
+        }
+        private void txtFirstName_Click(object sender, EventArgs e)
+        {
+            if(txtFirstName.Text.Equals("First Name", StringComparison.InvariantCulture)) {
+                txtFirstName.Clear();
+            }
+        }
+        private void txtFirstName_Leave(object sender, EventArgs e)
+        {
+            if(String.IsNullOrWhiteSpace(txtFirstName.Text)) {
+                txtFirstName.Text = "First Name";
+            }
+        }
+
+        private void txtMiddleInitial_Click(object sender, EventArgs e)
+        {
+            if (txtMiddleInitial.Text.Equals("MI", StringComparison.InvariantCulture)) {
+                txtMiddleInitial.Clear();
+            }
+        }
+
+        private void txtMiddleInitial_Leave(object sender, EventArgs e)
+        {
+            if (String.IsNullOrWhiteSpace(txtMiddleInitial.Text)) {
+                txtMiddleInitial.Text = "MI";
+            }
+        }
+
+        private void txtLastName_Click(object sender, EventArgs e)
+        {
+            if (txtLastName.Text.Equals("Last Name", StringComparison.InvariantCulture)) {
+                txtLastName.Clear();
+            }
+        }
+
+        private void txtLastName_Leave(object sender, EventArgs e)
+        {
+            if (String.IsNullOrWhiteSpace(txtLastName.Text)) {
+                txtLastName.Text = "Last Name";
+            }
+        }
+
+        private void txtAccountName_Click(object sender, EventArgs e)
+        {
+            if (txtAccountName.Text.Equals("Account name", StringComparison.InvariantCulture)) {
+                txtAccountName.Clear();
+            }
+        }
+
+        private void txtAccountName_Leave(object sender, EventArgs e)
+        {
+            if (String.IsNullOrWhiteSpace(txtAccountName.Text)) {
+                txtAccountName.Text = "Account name";
+            }
+        }
+
+        private void txtPassword_Click(object sender, EventArgs e)
+        {
+            if (txtPassword.Text.Equals("Password", StringComparison.InvariantCulture)){
+                txtPassword.Clear();
+                txtPassword.PasswordChar = '*';
+            }
+        }
+
+        private void txtPassword_Leave(object sender, EventArgs e)
+        {
+            if (String.IsNullOrWhiteSpace(txtPassword.Text)){
+                txtPassword.Text = "Password";
+                txtPassword.PasswordChar = '\0';
+            }
+        }
+
+        private void txtConfirmPass_Click(object sender, EventArgs e)
+        {
+            if (txtConfirmPass.Text.Equals("Confirm password", StringComparison.InvariantCulture)) {
+                txtConfirmPass.Clear();
+                txtConfirmPass.PasswordChar = '*';
+            }
+        }
+
+        private void txtConfirmPass_Leave(object sender, EventArgs e)
+        {
+            if (String.IsNullOrWhiteSpace(txtConfirmPass.Text)){
+                txtConfirmPass.Text = "Confirm password";
+                txtConfirmPass.PasswordChar = '\0';
+            }
+        }
+
+        private void rbMale_CheckedChanged(object sender, EventArgs e)
+        {
+            if(rbMale.Checked) {
+                gender = "Male";
+            }
+        }
+
+        private void rbFemale_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbFemale.Checked)
+            {
+                gender = "Female";
+            }
+        }
+
+        private void txtFirstName_TextChanged(object sender, EventArgs e)
+        {
+       
+        }
+
+        private void txtFirstName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsLetter(e.KeyChar) || e.KeyChar == '\b' || e.KeyChar == ' ')                
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtMiddleInitial_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsLetter(e.KeyChar) || e.KeyChar == '\b' || e.KeyChar == ' ')
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtLastName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsLetter(e.KeyChar) || e.KeyChar == '\b' || e.KeyChar == ' ')
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

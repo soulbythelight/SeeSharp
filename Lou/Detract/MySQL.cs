@@ -15,6 +15,7 @@ namespace Lou.Detract
         public abstract int COUNT(string _tablename);
         public abstract void PUT(string _tablename, Dictionary<string, string> _columns);
         public abstract void CHANGE(string _tablename, string _statement, Dictionary<string, string> _columns);
+     
     }
 }
 

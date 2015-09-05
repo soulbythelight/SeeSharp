@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Admin));
             this.panelHead = new System.Windows.Forms.Panel();
             this.btnMenu = new System.Windows.Forms.Button();
@@ -37,7 +38,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnBackMenu = new System.Windows.Forms.Button();
-            this.btnPic = new RoundButton();
             this.btnAddUser = new System.Windows.Forms.Button();
             this.panelMain = new System.Windows.Forms.Panel();
             this.button6 = new System.Windows.Forms.Button();
@@ -51,13 +51,11 @@
             this.lnlTopAttender = new System.Windows.Forms.Label();
             this.panelAddUser = new System.Windows.Forms.Panel();
             this.btnOpenFile = new System.Windows.Forms.Button();
-            this.btnTakePhoto = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
+            this.pictureBoxProfile = new System.Windows.Forms.PictureBox();
             this.button7 = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnNeedToTap = new System.Windows.Forms.Button();
             this.txtRFID = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.txtConfirmPass = new System.Windows.Forms.TextBox();
@@ -84,12 +82,17 @@
             this.panel9 = new System.Windows.Forms.Panel();
             this.button13 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.roundButton1 = new RoundButton();
+            this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnPic = new RoundButton();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.panelHead.SuspendLayout();
             this.panelMenu.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.panelSubDTR.SuspendLayout();
             this.panelAddUser.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -99,6 +102,7 @@
             this.panel8.SuspendLayout();
             this.panelIndividualDTR.SuspendLayout();
             this.panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelHead
@@ -161,12 +165,11 @@
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.panelMenu.Controls.Add(this.roundButton1);
             this.panelMenu.Controls.Add(this.label1);
             this.panelMenu.Controls.Add(this.panel2);
             this.panelMenu.Controls.Add(this.btnBackMenu);
             this.panelMenu.Controls.Add(this.btnStart);
-            this.panelMenu.Location = new System.Drawing.Point(1242, 93);
+            this.panelMenu.Location = new System.Drawing.Point(1315, 105);
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(388, 768);
             this.panelMenu.TabIndex = 9;
@@ -208,16 +211,6 @@
             this.btnBackMenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBackMenu.UseVisualStyleBackColor = false;
             this.btnBackMenu.Click += new System.EventHandler(this.btnBackMenu_Click);
-            // 
-            // btnPic
-            // 
-            this.btnPic.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPic.BackgroundImage")));
-            this.btnPic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnPic.Location = new System.Drawing.Point(73, 98);
-            this.btnPic.Name = "btnPic";
-            this.btnPic.Size = new System.Drawing.Size(243, 232);
-            this.btnPic.TabIndex = 0;
-            this.btnPic.UseVisualStyleBackColor = true;
             // 
             // btnAddUser
             // 
@@ -386,9 +379,7 @@
             // 
             this.panelAddUser.BackColor = System.Drawing.Color.LightGray;
             this.panelAddUser.Controls.Add(this.btnOpenFile);
-            this.panelAddUser.Controls.Add(this.btnTakePhoto);
-            this.panelAddUser.Controls.Add(this.button8);
-            this.panelAddUser.Controls.Add(this.label3);
+            this.panelAddUser.Controls.Add(this.pictureBoxProfile);
             this.panelAddUser.Controls.Add(this.button7);
             this.panelAddUser.Controls.Add(this.btnAdd);
             this.panelAddUser.Controls.Add(this.panel5);
@@ -399,7 +390,7 @@
             this.panelAddUser.Controls.Add(this.panel3);
             this.panelAddUser.Controls.Add(this.panel1);
             this.panelAddUser.Controls.Add(this.label2);
-            this.panelAddUser.Location = new System.Drawing.Point(367, 116);
+            this.panelAddUser.Location = new System.Drawing.Point(367, 118);
             this.panelAddUser.Name = "panelAddUser";
             this.panelAddUser.Size = new System.Drawing.Size(559, 507);
             this.panelAddUser.TabIndex = 13;
@@ -407,66 +398,32 @@
             // 
             // btnOpenFile
             // 
-            this.btnOpenFile.BackColor = System.Drawing.Color.DarkGray;
+            this.btnOpenFile.BackColor = System.Drawing.Color.Silver;
             this.btnOpenFile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnOpenFile.FlatAppearance.BorderSize = 0;
             this.btnOpenFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOpenFile.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOpenFile.ForeColor = System.Drawing.Color.White;
             this.btnOpenFile.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.btnOpenFile.Location = new System.Drawing.Point(172, 52);
+            this.btnOpenFile.Location = new System.Drawing.Point(384, 127);
             this.btnOpenFile.Name = "btnOpenFile";
-            this.btnOpenFile.Size = new System.Drawing.Size(143, 112);
+            this.btnOpenFile.Size = new System.Drawing.Size(153, 36);
             this.btnOpenFile.TabIndex = 17;
-            this.btnOpenFile.Text = "or Choose from file";
+            this.btnOpenFile.Text = "Choose from file";
             this.btnOpenFile.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnOpenFile.UseVisualStyleBackColor = false;
             this.btnOpenFile.Click += new System.EventHandler(this.btnOpenFile_Click);
             // 
-            // btnTakePhoto
+            // pictureBoxProfile
             // 
-            this.btnTakePhoto.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnTakePhoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnTakePhoto.FlatAppearance.BorderSize = 0;
-            this.btnTakePhoto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTakePhoto.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTakePhoto.ForeColor = System.Drawing.Color.SlateGray;
-            this.btnTakePhoto.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.btnTakePhoto.Location = new System.Drawing.Point(22, 52);
-            this.btnTakePhoto.Name = "btnTakePhoto";
-            this.btnTakePhoto.Size = new System.Drawing.Size(143, 112);
-            this.btnTakePhoto.TabIndex = 20;
-            this.btnTakePhoto.Text = "Take a photo";
-            this.btnTakePhoto.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnTakePhoto.UseVisualStyleBackColor = false;
-            this.btnTakePhoto.Click += new System.EventHandler(this.btnTakePhoto_Click);
-            // 
-            // button8
-            // 
-            this.button8.BackColor = System.Drawing.Color.Gainsboro;
-            this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.ForeColor = System.Drawing.Color.White;
-            this.button8.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.button8.Location = new System.Drawing.Point(465, 11);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(81, 81);
-            this.button8.TabIndex = 19;
-            this.button8.UseVisualStyleBackColor = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.SlateGray;
-            this.label3.Location = new System.Drawing.Point(43, 12);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(62, 32);
-            this.label3.TabIndex = 18;
-            this.label3.Text = "Back";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.pictureBoxProfile.BackColor = System.Drawing.Color.Silver;
+            this.pictureBoxProfile.BackgroundImage = global::Lou.Properties.Resources.account;
+            this.pictureBoxProfile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBoxProfile.Location = new System.Drawing.Point(384, 19);
+            this.pictureBoxProfile.Name = "pictureBoxProfile";
+            this.pictureBoxProfile.Size = new System.Drawing.Size(153, 126);
+            this.pictureBoxProfile.TabIndex = 18;
+            this.pictureBoxProfile.TabStop = false;
             // 
             // button7
             // 
@@ -478,7 +435,7 @@
             this.button7.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button7.ForeColor = System.Drawing.Color.White;
             this.button7.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.button7.Location = new System.Drawing.Point(3, 5);
+            this.button7.Location = new System.Drawing.Point(3, 30);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(51, 46);
             this.button7.TabIndex = 17;
@@ -487,40 +444,42 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.BackColor = System.Drawing.Color.Gray;
+            this.btnAdd.BackColor = System.Drawing.Color.SlateGray;
             this.btnAdd.Font = new System.Drawing.Font("Segoe UI Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.White;
             this.btnAdd.Location = new System.Drawing.Point(412, 433);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(125, 52);
-            this.btnAdd.TabIndex = 15;
+            this.btnAdd.TabIndex = 10;
             this.btnAdd.Text = "Done";
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.White;
-            this.panel5.Controls.Add(this.button2);
+            this.panel5.Controls.Add(this.btnNeedToTap);
             this.panel5.Controls.Add(this.txtRFID);
             this.panel5.Location = new System.Drawing.Point(22, 369);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(515, 53);
             this.panel5.TabIndex = 14;
             // 
-            // button2
+            // btnNeedToTap
             // 
-            this.button2.BackColor = System.Drawing.Color.DarkGray;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.button2.Location = new System.Drawing.Point(9, 10);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(225, 32);
-            this.button2.TabIndex = 16;
-            this.button2.Text = "Click to read RFID Card";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnNeedToTap.BackColor = System.Drawing.Color.DarkGray;
+            this.btnNeedToTap.FlatAppearance.BorderSize = 0;
+            this.btnNeedToTap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNeedToTap.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNeedToTap.ForeColor = System.Drawing.Color.White;
+            this.btnNeedToTap.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.btnNeedToTap.Location = new System.Drawing.Point(9, 10);
+            this.btnNeedToTap.Name = "btnNeedToTap";
+            this.btnNeedToTap.Size = new System.Drawing.Size(225, 32);
+            this.btnNeedToTap.TabIndex = 8;
+            this.btnNeedToTap.Text = "Click to read RFID Card";
+            this.btnNeedToTap.UseVisualStyleBackColor = false;
+            this.btnNeedToTap.Click += new System.EventHandler(this.btnNeedToTap_Click);
             // 
             // txtRFID
             // 
@@ -532,8 +491,8 @@
             this.txtRFID.Location = new System.Drawing.Point(242, 12);
             this.txtRFID.Name = "txtRFID";
             this.txtRFID.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtRFID.Size = new System.Drawing.Size(252, 28);
-            this.txtRFID.TabIndex = 0;
+            this.txtRFID.Size = new System.Drawing.Size(238, 28);
+            this.txtRFID.TabIndex = 9;
             this.txtRFID.Text = "Value";
             // 
             // panel4
@@ -554,9 +513,11 @@
             this.txtConfirmPass.Location = new System.Drawing.Point(15, 10);
             this.txtConfirmPass.Name = "txtConfirmPass";
             this.txtConfirmPass.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtConfirmPass.Size = new System.Drawing.Size(225, 32);
-            this.txtConfirmPass.TabIndex = 0;
+            this.txtConfirmPass.Size = new System.Drawing.Size(202, 32);
+            this.txtConfirmPass.TabIndex = 7;
             this.txtConfirmPass.Text = "Confirm password";
+            this.txtConfirmPass.Click += new System.EventHandler(this.txtConfirmPass_Click);
+            this.txtConfirmPass.Leave += new System.EventHandler(this.txtConfirmPass_Leave);
             // 
             // panel6
             // 
@@ -576,9 +537,12 @@
             this.txtPassword.Location = new System.Drawing.Point(15, 10);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtPassword.Size = new System.Drawing.Size(225, 32);
-            this.txtPassword.TabIndex = 0;
+            this.txtPassword.Size = new System.Drawing.Size(210, 32);
+            this.txtPassword.TabIndex = 6;
             this.txtPassword.Text = "Password";
+            this.txtPassword.Click += new System.EventHandler(this.txtPassword_Click);
+            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
+            this.txtPassword.Leave += new System.EventHandler(this.txtPassword_Leave);
             // 
             // rbFemale
             // 
@@ -592,9 +556,10 @@
             this.rbFemale.Name = "rbFemale";
             this.rbFemale.Ripple = true;
             this.rbFemale.Size = new System.Drawing.Size(74, 30);
-            this.rbFemale.TabIndex = 11;
+            this.rbFemale.TabIndex = 5;
             this.rbFemale.Text = "Female";
             this.rbFemale.UseVisualStyleBackColor = true;
+            this.rbFemale.CheckedChanged += new System.EventHandler(this.rbFemale_CheckedChanged);
             // 
             // rbMale
             // 
@@ -609,10 +574,11 @@
             this.rbMale.Name = "rbMale";
             this.rbMale.Ripple = true;
             this.rbMale.Size = new System.Drawing.Size(59, 30);
-            this.rbMale.TabIndex = 10;
+            this.rbMale.TabIndex = 4;
             this.rbMale.TabStop = true;
             this.rbMale.Text = "Male";
             this.rbMale.UseVisualStyleBackColor = true;
+            this.rbMale.CheckedChanged += new System.EventHandler(this.rbMale_CheckedChanged);
             // 
             // panel3
             // 
@@ -632,9 +598,11 @@
             this.txtAccountName.Location = new System.Drawing.Point(15, 10);
             this.txtAccountName.Name = "txtAccountName";
             this.txtAccountName.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtAccountName.Size = new System.Drawing.Size(225, 32);
-            this.txtAccountName.TabIndex = 0;
+            this.txtAccountName.Size = new System.Drawing.Size(210, 32);
+            this.txtAccountName.TabIndex = 3;
             this.txtAccountName.Text = "Account name";
+            this.txtAccountName.Click += new System.EventHandler(this.txtAccountName_Click);
+            this.txtAccountName.Leave += new System.EventHandler(this.txtAccountName_Leave);
             // 
             // panel1
             // 
@@ -657,9 +625,12 @@
             this.txtMiddleInitial.MaxLength = 2;
             this.txtMiddleInitial.Name = "txtMiddleInitial";
             this.txtMiddleInitial.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtMiddleInitial.Size = new System.Drawing.Size(73, 32);
-            this.txtMiddleInitial.TabIndex = 2;
+            this.txtMiddleInitial.Size = new System.Drawing.Size(60, 32);
+            this.txtMiddleInitial.TabIndex = 1;
             this.txtMiddleInitial.Text = "MI";
+            this.txtMiddleInitial.Click += new System.EventHandler(this.txtMiddleInitial_Click);
+            this.txtMiddleInitial.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMiddleInitial_KeyPress);
+            this.txtMiddleInitial.Leave += new System.EventHandler(this.txtMiddleInitial_Leave);
             // 
             // txtLastName
             // 
@@ -670,9 +641,12 @@
             this.txtLastName.Location = new System.Drawing.Point(307, 10);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtLastName.Size = new System.Drawing.Size(196, 32);
-            this.txtLastName.TabIndex = 1;
+            this.txtLastName.Size = new System.Drawing.Size(187, 32);
+            this.txtLastName.TabIndex = 2;
             this.txtLastName.Text = "Last Name";
+            this.txtLastName.Click += new System.EventHandler(this.txtLastName_Click);
+            this.txtLastName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLastName_KeyPress);
+            this.txtLastName.Leave += new System.EventHandler(this.txtLastName_Leave);
             // 
             // txtFirstName
             // 
@@ -680,21 +654,25 @@
             this.txtFirstName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtFirstName.Font = new System.Drawing.Font("Segoe UI Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFirstName.ForeColor = System.Drawing.Color.Gray;
-            this.txtFirstName.Location = new System.Drawing.Point(15, 10);
+            this.txtFirstName.Location = new System.Drawing.Point(14, 10);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtFirstName.Size = new System.Drawing.Size(201, 32);
+            this.txtFirstName.Size = new System.Drawing.Size(186, 32);
             this.txtFirstName.TabIndex = 0;
             this.txtFirstName.Text = "First Name";
+            this.txtFirstName.Click += new System.EventHandler(this.txtFirstName_Click);
+            this.txtFirstName.TextChanged += new System.EventHandler(this.txtFirstName_TextChanged);
+            this.txtFirstName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFirstName_KeyPress);
+            this.txtFirstName.Leave += new System.EventHandler(this.txtFirstName_Leave);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Light", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Segoe UI Light", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.SlateGray;
-            this.label2.Location = new System.Drawing.Point(324, 25);
+            this.label2.Location = new System.Drawing.Point(46, 18);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(141, 45);
+            this.label2.Size = new System.Drawing.Size(210, 65);
             this.label2.TabIndex = 1;
             this.label2.Text = "Add user";
             // 
@@ -845,14 +823,28 @@
             this.textBox1.TabIndex = 1;
             this.textBox1.Text = "Search everything";
             // 
-            // roundButton1
+            // timer1
             // 
-            this.roundButton1.Location = new System.Drawing.Point(136, 160);
-            this.roundButton1.Name = "roundButton1";
-            this.roundButton1.Size = new System.Drawing.Size(190, 171);
-            this.roundButton1.TabIndex = 12;
-            this.roundButton1.Text = "roundButton1";
-            this.roundButton1.UseVisualStyleBackColor = true;
+            this.timer1.Enabled = true;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // btnPic
+            // 
+            this.btnPic.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPic.BackgroundImage")));
+            this.btnPic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnPic.Location = new System.Drawing.Point(73, 98);
+            this.btnPic.Name = "btnPic";
+            this.btnPic.Size = new System.Drawing.Size(243, 232);
+            this.btnPic.TabIndex = 0;
+            this.btnPic.UseVisualStyleBackColor = true;
+            // 
+            // openFileDialog
+            // 
+            this.openFileDialog.FileName = "openFileDialog";
             // 
             // Admin
             // 
@@ -879,6 +871,7 @@
             this.panelSubDTR.ResumeLayout(false);
             this.panelAddUser.ResumeLayout(false);
             this.panelAddUser.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel4.ResumeLayout(false);
@@ -897,6 +890,7 @@
             this.panelIndividualDTR.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -932,18 +926,15 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnNeedToTap;
         private System.Windows.Forms.TextBox txtRFID;
         private System.Windows.Forms.TextBox txtFirstName;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Panel panelSubDTR;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Button btnDTRMonth;
         private System.Windows.Forms.Button btnOpenFile;
-        private System.Windows.Forms.Button btnTakePhoto;
         private System.Windows.Forms.Panel panelViewDTRMonth;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Button btnSerachDTR;
@@ -958,6 +949,10 @@
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.TextBox textBox1;
-        private RoundButton roundButton1;
+        private System.IO.Ports.SerialPort serialPort1;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.PictureBox pictureBoxProfile;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
     }
 }

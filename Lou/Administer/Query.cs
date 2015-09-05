@@ -4,10 +4,11 @@ using MySql.Data.MySqlClient;
 namespace Lou.Administer
 { class Query : Detract.MySQL
     {
-        protected MySqlConnection _connect;
-        protected MySqlCommand _command;
-        protected MySqlDataReader _reader;
-        protected string _query;
+        public MySqlConnection _connect;
+        public MySqlCommand _command;
+        public MySqlDataReader _reader;
+        public string _query;
+ 
         public override void OPEN()
         {
             _connect.Open();
@@ -31,9 +32,11 @@ namespace Lou.Administer
         }
         public override void COMMIT()
         {
+           
             CLOSE();
             OPEN();
             _command = new MySqlCommand(_query, _connect);
+             
             _command.ExecuteNonQuery();
         }
         public override void READ()
@@ -94,5 +97,6 @@ namespace Lou.Administer
             _query = "update " + _tablename + " set " + _query.Remove(_query.Length - 1) + " where " + _statement;
             COMMIT();
         }
+        
     }
 }
