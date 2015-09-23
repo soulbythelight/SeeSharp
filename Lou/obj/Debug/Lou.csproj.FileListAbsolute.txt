@@ -11,3 +11,15 @@ C:\Users\Creatives\Documents\Visual Studio 2013\Projects\Lou\Lou\obj\Debug\Lou.c
 C:\Users\Creatives\Documents\Visual Studio 2013\Projects\Lou\Lou\obj\Debug\Lou.exe
 C:\Users\Creatives\Documents\Visual Studio 2013\Projects\Lou\Lou\obj\Debug\Lou.pdb
 C:\Users\Creatives\Documents\Visual Studio 2013\Projects\Lou\Lou\obj\Debug\Lou.csprojResolveAssemblyReference.cache
+C:\Users\rihanna\Documents\Face Recog\SeeSharp\Lou\bin\Debug\Lou.exe.config
+C:\Users\rihanna\Documents\Face Recog\SeeSharp\Lou\obj\Debug\Lou.exe
+C:\Users\rihanna\Documents\Face Recog\SeeSharp\Lou\obj\Debug\Lou.pdb
+C:\Users\rihanna\Documents\Face Recog\SeeSharp\Lou\bin\Debug\Lou.exe
+C:\Users\rihanna\Documents\Face Recog\SeeSharp\Lou\bin\Debug\Lou.pdb
+C:\Users\rihanna\Documents\Face Recog\SeeSharp\Lou\bin\Debug\MaterialSkin.dll
+C:\Users\rihanna\Documents\Face Recog\SeeSharp\Lou\obj\Debug\Lou.csprojResolveAssemblyReference.cache
+C:\Users\rihanna\Documents\Face Recog\SeeSharp\Lou\obj\Debug\Lou.Admin.resources
+C:\Users\rihanna\Documents\Face Recog\SeeSharp\Lou\obj\Debug\Lou.LogIn.resources
+C:\Users\rihanna\Documents\Face Recog\SeeSharp\Lou\obj\Debug\Lou.Properties.Resources.resources
+C:\Users\rihanna\Documents\Face Recog\SeeSharp\Lou\obj\Debug\Lou.TapID.resources
+C:\Users\rihanna\Documents\Face Recog\SeeSharp\Lou\obj\Debug\Lou.csproj.GenerateResource.Cache

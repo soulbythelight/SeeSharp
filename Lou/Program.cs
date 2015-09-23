@@ -11,12 +11,14 @@ namespace Lou
     class Program
     {
         public int userID = 0;
+        static Administer.Query SELF = new Administer.Query();
         [STAThread]
         static void Main(string[] args)
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TapID());
+            SELF.PREPARE("192.168.1.13", "bulsu_db", "root", "");
+            //Application.EnableVisualStyles();
+            //Application.SetCompatibleTextRenderingDefault(false);
+            //Application.Run(new TapID());
         }
     }
 } 
