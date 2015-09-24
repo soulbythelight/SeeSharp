@@ -31,19 +31,28 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Admin));
             this.panelHead = new System.Windows.Forms.Panel();
+            this.btnMenu = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnStart = new System.Windows.Forms.Button();
             this.panelMenu = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnBackMenu = new System.Windows.Forms.Button();
             this.panelMain = new System.Windows.Forms.Panel();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.lnlTopAttender = new System.Windows.Forms.Label();
+            this.btnAddUser = new System.Windows.Forms.Button();
             this.panelSubDTR = new System.Windows.Forms.Panel();
             this.button9 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.btnDTRMonth = new System.Windows.Forms.Button();
-            this.lnlTopAttender = new System.Windows.Forms.Label();
+            this.btnViewDTR = new System.Windows.Forms.Button();
             this.panelAddUser = new System.Windows.Forms.Panel();
             this.btnOpenFile = new System.Windows.Forms.Button();
+            this.pictureBoxProfile = new System.Windows.Forms.PictureBox();
+            this.button7 = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.btnNeedToTap = new System.Windows.Forms.Button();
@@ -62,11 +71,13 @@
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panelViewDTRMonth = new System.Windows.Forms.Panel();
+            this.btnbackDTRMonth = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.btnSerachDTR = new System.Windows.Forms.Button();
             this.txtSearchDTR = new System.Windows.Forms.TextBox();
             this.panelIndividualDTR = new System.Windows.Forms.Panel();
+            this.btnBackIndividual = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.button13 = new System.Windows.Forms.Button();
@@ -77,23 +88,13 @@
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.panelMessageBox = new System.Windows.Forms.Panel();
             this.lblMessageBox = new System.Windows.Forms.Label();
-            this.btnBackMenu = new System.Windows.Forms.Button();
-            this.btnMenu = new System.Windows.Forms.Button();
-            this.pictureBoxProfile = new System.Windows.Forms.PictureBox();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.btnAddUser = new System.Windows.Forms.Button();
-            this.btnViewDTR = new System.Windows.Forms.Button();
-            this.btnbackDTRMonth = new System.Windows.Forms.Button();
-            this.btnBackIndividual = new System.Windows.Forms.Button();
             this.btnPic = new RoundButton();
             this.panelHead.SuspendLayout();
             this.panelMenu.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.panelSubDTR.SuspendLayout();
             this.panelAddUser.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -105,7 +106,6 @@
             this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.panelMessageBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).BeginInit();
             this.SuspendLayout();
             // 
             // panelHead
@@ -117,6 +117,24 @@
             this.panelHead.Name = "panelHead";
             this.panelHead.Size = new System.Drawing.Size(1366, 87);
             this.panelHead.TabIndex = 7;
+            // 
+            // btnMenu
+            // 
+            this.btnMenu.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnMenu.BackgroundImage = global::Lou.Properties.Resources.menu;
+            this.btnMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnMenu.FlatAppearance.BorderSize = 0;
+            this.btnMenu.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CadetBlue;
+            this.btnMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMenu.Font = new System.Drawing.Font("Segoe UI Light", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenu.ForeColor = System.Drawing.Color.White;
+            this.btnMenu.Location = new System.Drawing.Point(36, 16);
+            this.btnMenu.Name = "btnMenu";
+            this.btnMenu.Size = new System.Drawing.Size(62, 56);
+            this.btnMenu.TabIndex = 10;
+            this.btnMenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMenu.UseVisualStyleBackColor = false;
+            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
             // button1
             // 
@@ -180,6 +198,23 @@
             this.panel2.Size = new System.Drawing.Size(388, 371);
             this.panel2.TabIndex = 10;
             // 
+            // btnBackMenu
+            // 
+            this.btnBackMenu.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnBackMenu.BackgroundImage = global::Lou.Properties.Resources.left_arrow1;
+            this.btnBackMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnBackMenu.FlatAppearance.BorderSize = 0;
+            this.btnBackMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBackMenu.Font = new System.Drawing.Font("Segoe UI Light", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBackMenu.ForeColor = System.Drawing.Color.White;
+            this.btnBackMenu.Location = new System.Drawing.Point(289, 11);
+            this.btnBackMenu.Name = "btnBackMenu";
+            this.btnBackMenu.Size = new System.Drawing.Size(89, 63);
+            this.btnBackMenu.TabIndex = 9;
+            this.btnBackMenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBackMenu.UseVisualStyleBackColor = false;
+            this.btnBackMenu.Click += new System.EventHandler(this.btnBackMenu_Click);
+            // 
             // panelMain
             // 
             this.panelMain.Controls.Add(this.button6);
@@ -193,6 +228,82 @@
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(1250, 606);
             this.panelMain.TabIndex = 12;
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Font = new System.Drawing.Font("Segoe UI Light", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.ForeColor = System.Drawing.Color.White;
+            this.button6.Image = global::Lou.Properties.Resources.UpdateUser;
+            this.button6.Location = new System.Drawing.Point(394, 313);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(319, 278);
+            this.button6.TabIndex = 15;
+            this.button6.Text = "Update User";
+            this.button6.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.button6.UseVisualStyleBackColor = false;
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.LightCoral;
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Segoe UI Light", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ForeColor = System.Drawing.Color.White;
+            this.button5.Image = global::Lou.Properties.Resources.UpdateSched;
+            this.button5.Location = new System.Drawing.Point(45, 455);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(343, 136);
+            this.button5.TabIndex = 14;
+            this.button5.Text = "Update Schedule";
+            this.button5.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.button5.UseVisualStyleBackColor = false;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.DarkGray;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Segoe UI Light", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.Color.White;
+            this.button4.Image = global::Lou.Properties.Resources.AddSched;
+            this.button4.Location = new System.Drawing.Point(45, 313);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(343, 136);
+            this.button4.TabIndex = 13;
+            this.button4.Text = "Add Schedule";
+            this.button4.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.button4.UseVisualStyleBackColor = false;
+            // 
+            // lnlTopAttender
+            // 
+            this.lnlTopAttender.AutoSize = true;
+            this.lnlTopAttender.Font = new System.Drawing.Font("Segoe UI Light", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lnlTopAttender.ForeColor = System.Drawing.Color.SlateGray;
+            this.lnlTopAttender.Location = new System.Drawing.Point(775, 24);
+            this.lnlTopAttender.Name = "lnlTopAttender";
+            this.lnlTopAttender.Size = new System.Drawing.Size(358, 50);
+            this.lnlTopAttender.TabIndex = 10;
+            this.lnlTopAttender.Text = "Top Attendee this day";
+            // 
+            // btnAddUser
+            // 
+            this.btnAddUser.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnAddUser.FlatAppearance.BorderSize = 0;
+            this.btnAddUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddUser.Font = new System.Drawing.Font("Segoe UI Light", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddUser.ForeColor = System.Drawing.Color.White;
+            this.btnAddUser.Image = global::Lou.Properties.Resources.Adduser1;
+            this.btnAddUser.Location = new System.Drawing.Point(45, 84);
+            this.btnAddUser.Name = "btnAddUser";
+            this.btnAddUser.Size = new System.Drawing.Size(434, 223);
+            this.btnAddUser.TabIndex = 11;
+            this.btnAddUser.Text = "Add User";
+            this.btnAddUser.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.btnAddUser.UseVisualStyleBackColor = false;
+            this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
             // 
             // panelSubDTR
             // 
@@ -250,16 +361,22 @@
             this.btnDTRMonth.UseVisualStyleBackColor = false;
             this.btnDTRMonth.Click += new System.EventHandler(this.btnDTRMonth_Click);
             // 
-            // lnlTopAttender
+            // btnViewDTR
             // 
-            this.lnlTopAttender.AutoSize = true;
-            this.lnlTopAttender.Font = new System.Drawing.Font("Segoe UI Light", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lnlTopAttender.ForeColor = System.Drawing.Color.SlateGray;
-            this.lnlTopAttender.Location = new System.Drawing.Point(775, 24);
-            this.lnlTopAttender.Name = "lnlTopAttender";
-            this.lnlTopAttender.Size = new System.Drawing.Size(358, 50);
-            this.lnlTopAttender.TabIndex = 10;
-            this.lnlTopAttender.Text = "Top Attendee this day";
+            this.btnViewDTR.BackColor = System.Drawing.Color.LightSalmon;
+            this.btnViewDTR.FlatAppearance.BorderSize = 0;
+            this.btnViewDTR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnViewDTR.Font = new System.Drawing.Font("Segoe UI Light", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewDTR.ForeColor = System.Drawing.Color.White;
+            this.btnViewDTR.Image = global::Lou.Properties.Resources.DTR;
+            this.btnViewDTR.Location = new System.Drawing.Point(485, 84);
+            this.btnViewDTR.Name = "btnViewDTR";
+            this.btnViewDTR.Size = new System.Drawing.Size(228, 223);
+            this.btnViewDTR.TabIndex = 12;
+            this.btnViewDTR.Text = "View DTRs";
+            this.btnViewDTR.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.btnViewDTR.UseVisualStyleBackColor = false;
+            this.btnViewDTR.Click += new System.EventHandler(this.btnViewDTR_Click);
             // 
             // panelAddUser
             // 
@@ -299,6 +416,34 @@
             this.btnOpenFile.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnOpenFile.UseVisualStyleBackColor = false;
             this.btnOpenFile.Click += new System.EventHandler(this.btnOpenFile_Click);
+            // 
+            // pictureBoxProfile
+            // 
+            this.pictureBoxProfile.BackColor = System.Drawing.Color.Silver;
+            this.pictureBoxProfile.BackgroundImage = global::Lou.Properties.Resources.account;
+            this.pictureBoxProfile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBoxProfile.Location = new System.Drawing.Point(384, 19);
+            this.pictureBoxProfile.Name = "pictureBoxProfile";
+            this.pictureBoxProfile.Size = new System.Drawing.Size(153, 126);
+            this.pictureBoxProfile.TabIndex = 18;
+            this.pictureBoxProfile.TabStop = false;
+            // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.LightGray;
+            this.button7.BackgroundImage = global::Lou.Properties.Resources.left_arrow1;
+            this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button7.FlatAppearance.BorderSize = 0;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.ForeColor = System.Drawing.Color.White;
+            this.button7.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.button7.Location = new System.Drawing.Point(3, 30);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(51, 46);
+            this.button7.TabIndex = 17;
+            this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // btnAdd
             // 
@@ -352,6 +497,7 @@
             this.txtRFID.Size = new System.Drawing.Size(238, 28);
             this.txtRFID.TabIndex = 9;
             this.txtRFID.Text = "Value";
+            this.txtRFID.TextChanged += new System.EventHandler(this.txtRFID_TextChanged);
             // 
             // panel4
             // 
@@ -546,6 +692,23 @@
             this.panelViewDTRMonth.TabIndex = 14;
             this.panelViewDTRMonth.Visible = false;
             // 
+            // btnbackDTRMonth
+            // 
+            this.btnbackDTRMonth.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnbackDTRMonth.BackgroundImage = global::Lou.Properties.Resources.left_arrow1;
+            this.btnbackDTRMonth.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnbackDTRMonth.FlatAppearance.BorderSize = 0;
+            this.btnbackDTRMonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnbackDTRMonth.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnbackDTRMonth.ForeColor = System.Drawing.Color.White;
+            this.btnbackDTRMonth.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.btnbackDTRMonth.Location = new System.Drawing.Point(29, 45);
+            this.btnbackDTRMonth.Name = "btnbackDTRMonth";
+            this.btnbackDTRMonth.Size = new System.Drawing.Size(51, 46);
+            this.btnbackDTRMonth.TabIndex = 18;
+            this.btnbackDTRMonth.UseVisualStyleBackColor = false;
+            this.btnbackDTRMonth.Click += new System.EventHandler(this.btnbackDTRMonth_Click);
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -602,6 +765,23 @@
             this.panelIndividualDTR.TabIndex = 19;
             this.panelIndividualDTR.Visible = false;
             // 
+            // btnBackIndividual
+            // 
+            this.btnBackIndividual.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnBackIndividual.BackgroundImage = global::Lou.Properties.Resources.left_arrow1;
+            this.btnBackIndividual.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnBackIndividual.FlatAppearance.BorderSize = 0;
+            this.btnBackIndividual.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBackIndividual.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBackIndividual.ForeColor = System.Drawing.Color.White;
+            this.btnBackIndividual.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.btnBackIndividual.Location = new System.Drawing.Point(29, 45);
+            this.btnBackIndividual.Name = "btnBackIndividual";
+            this.btnBackIndividual.Size = new System.Drawing.Size(51, 46);
+            this.btnBackIndividual.TabIndex = 18;
+            this.btnBackIndividual.UseVisualStyleBackColor = false;
+            this.btnBackIndividual.Click += new System.EventHandler(this.btnBackIndividual_Click);
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -650,6 +830,7 @@
             // timer1
             // 
             this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
             // 
             // errorProvider1
             // 
@@ -680,185 +861,6 @@
             this.lblMessageBox.Size = new System.Drawing.Size(115, 50);
             this.lblMessageBox.TabIndex = 0;
             this.lblMessageBox.Text = "label3";
-            // 
-            // btnBackMenu
-            // 
-            this.btnBackMenu.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.btnBackMenu.BackgroundImage = global::Lou.Properties.Resources.left_arrow1;
-            this.btnBackMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnBackMenu.FlatAppearance.BorderSize = 0;
-            this.btnBackMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBackMenu.Font = new System.Drawing.Font("Segoe UI Light", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBackMenu.ForeColor = System.Drawing.Color.White;
-            this.btnBackMenu.Location = new System.Drawing.Point(289, 11);
-            this.btnBackMenu.Name = "btnBackMenu";
-            this.btnBackMenu.Size = new System.Drawing.Size(89, 63);
-            this.btnBackMenu.TabIndex = 9;
-            this.btnBackMenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBackMenu.UseVisualStyleBackColor = false;
-            this.btnBackMenu.Click += new System.EventHandler(this.btnBackMenu_Click);
-            // 
-            // btnMenu
-            // 
-            this.btnMenu.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.btnMenu.BackgroundImage = global::Lou.Properties.Resources.menu;
-            this.btnMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnMenu.FlatAppearance.BorderSize = 0;
-            this.btnMenu.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CadetBlue;
-            this.btnMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMenu.Font = new System.Drawing.Font("Segoe UI Light", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMenu.ForeColor = System.Drawing.Color.White;
-            this.btnMenu.Location = new System.Drawing.Point(36, 16);
-            this.btnMenu.Name = "btnMenu";
-            this.btnMenu.Size = new System.Drawing.Size(62, 56);
-            this.btnMenu.TabIndex = 10;
-            this.btnMenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMenu.UseVisualStyleBackColor = false;
-            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
-            // 
-            // pictureBoxProfile
-            // 
-            this.pictureBoxProfile.BackColor = System.Drawing.Color.Silver;
-            this.pictureBoxProfile.BackgroundImage = global::Lou.Properties.Resources.account;
-            this.pictureBoxProfile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBoxProfile.Location = new System.Drawing.Point(384, 19);
-            this.pictureBoxProfile.Name = "pictureBoxProfile";
-            this.pictureBoxProfile.Size = new System.Drawing.Size(153, 126);
-            this.pictureBoxProfile.TabIndex = 18;
-            this.pictureBoxProfile.TabStop = false;
-            // 
-            // button7
-            // 
-            this.button7.BackColor = System.Drawing.Color.LightGray;
-            this.button7.BackgroundImage = global::Lou.Properties.Resources.left_arrow1;
-            this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.ForeColor = System.Drawing.Color.White;
-            this.button7.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.button7.Location = new System.Drawing.Point(3, 30);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(51, 46);
-            this.button7.TabIndex = 17;
-            this.button7.UseVisualStyleBackColor = false;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
-            // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Segoe UI Light", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Image = global::Lou.Properties.Resources.UpdateUser;
-            this.button6.Location = new System.Drawing.Point(394, 313);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(319, 278);
-            this.button6.TabIndex = 15;
-            this.button6.Text = "Update User";
-            this.button6.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.button6.UseVisualStyleBackColor = false;
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.Color.LightCoral;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Segoe UI Light", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Image = global::Lou.Properties.Resources.UpdateSched;
-            this.button5.Location = new System.Drawing.Point(45, 455);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(343, 136);
-            this.button5.TabIndex = 14;
-            this.button5.Text = "Update Schedule";
-            this.button5.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.button5.UseVisualStyleBackColor = false;
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.DarkGray;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Segoe UI Light", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Image = global::Lou.Properties.Resources.AddSched;
-            this.button4.Location = new System.Drawing.Point(45, 313);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(343, 136);
-            this.button4.TabIndex = 13;
-            this.button4.Text = "Add Schedule";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.button4.UseVisualStyleBackColor = false;
-            // 
-            // btnAddUser
-            // 
-            this.btnAddUser.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnAddUser.FlatAppearance.BorderSize = 0;
-            this.btnAddUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddUser.Font = new System.Drawing.Font("Segoe UI Light", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddUser.ForeColor = System.Drawing.Color.White;
-            this.btnAddUser.Image = global::Lou.Properties.Resources.Adduser1;
-            this.btnAddUser.Location = new System.Drawing.Point(45, 84);
-            this.btnAddUser.Name = "btnAddUser";
-            this.btnAddUser.Size = new System.Drawing.Size(434, 223);
-            this.btnAddUser.TabIndex = 11;
-            this.btnAddUser.Text = "Add User";
-            this.btnAddUser.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.btnAddUser.UseVisualStyleBackColor = false;
-            this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
-            // 
-            // btnViewDTR
-            // 
-            this.btnViewDTR.BackColor = System.Drawing.Color.LightSalmon;
-            this.btnViewDTR.FlatAppearance.BorderSize = 0;
-            this.btnViewDTR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnViewDTR.Font = new System.Drawing.Font("Segoe UI Light", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnViewDTR.ForeColor = System.Drawing.Color.White;
-            this.btnViewDTR.Image = global::Lou.Properties.Resources.DTR;
-            this.btnViewDTR.Location = new System.Drawing.Point(485, 84);
-            this.btnViewDTR.Name = "btnViewDTR";
-            this.btnViewDTR.Size = new System.Drawing.Size(228, 223);
-            this.btnViewDTR.TabIndex = 12;
-            this.btnViewDTR.Text = "View DTRs";
-            this.btnViewDTR.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.btnViewDTR.UseVisualStyleBackColor = false;
-            this.btnViewDTR.Click += new System.EventHandler(this.btnViewDTR_Click);
-            // 
-            // btnbackDTRMonth
-            // 
-            this.btnbackDTRMonth.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnbackDTRMonth.BackgroundImage = global::Lou.Properties.Resources.left_arrow1;
-            this.btnbackDTRMonth.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnbackDTRMonth.FlatAppearance.BorderSize = 0;
-            this.btnbackDTRMonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnbackDTRMonth.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnbackDTRMonth.ForeColor = System.Drawing.Color.White;
-            this.btnbackDTRMonth.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.btnbackDTRMonth.Location = new System.Drawing.Point(29, 45);
-            this.btnbackDTRMonth.Name = "btnbackDTRMonth";
-            this.btnbackDTRMonth.Size = new System.Drawing.Size(51, 46);
-            this.btnbackDTRMonth.TabIndex = 18;
-            this.btnbackDTRMonth.UseVisualStyleBackColor = false;
-            this.btnbackDTRMonth.Click += new System.EventHandler(this.btnbackDTRMonth_Click);
-            // 
-            // btnBackIndividual
-            // 
-            this.btnBackIndividual.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnBackIndividual.BackgroundImage = global::Lou.Properties.Resources.left_arrow1;
-            this.btnBackIndividual.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnBackIndividual.FlatAppearance.BorderSize = 0;
-            this.btnBackIndividual.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBackIndividual.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBackIndividual.ForeColor = System.Drawing.Color.White;
-            this.btnBackIndividual.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.btnBackIndividual.Location = new System.Drawing.Point(29, 45);
-            this.btnBackIndividual.Name = "btnBackIndividual";
-            this.btnBackIndividual.Size = new System.Drawing.Size(51, 46);
-            this.btnBackIndividual.TabIndex = 18;
-            this.btnBackIndividual.UseVisualStyleBackColor = false;
-            this.btnBackIndividual.Click += new System.EventHandler(this.btnBackIndividual_Click);
             // 
             // btnPic
             // 
@@ -896,6 +898,7 @@
             this.panelSubDTR.ResumeLayout(false);
             this.panelAddUser.ResumeLayout(false);
             this.panelAddUser.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel4.ResumeLayout(false);
@@ -917,7 +920,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.panelMessageBox.ResumeLayout(false);
             this.panelMessageBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).EndInit();
             this.ResumeLayout(false);
 
         }

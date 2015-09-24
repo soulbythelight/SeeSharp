@@ -97,6 +97,12 @@ namespace Lou.Administer
             _query = "update " + _tablename + " set " + _query.Remove(_query.Length - 1) + " where " + _statement;
             COMMIT();
         }
-        
+        public override void ERASE(string _tablename, string _statement, string _field)
+        {
+            _query = "";
+            _query = "delete " + _field + " from " + _tablename + " where " + _statement;
+            READ();
+        }
+
     }
 }

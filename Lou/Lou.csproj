@@ -133,6 +133,9 @@
   <ItemGroup>
     <None Include="Resources\AddSched.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_cast_white_48dp_2x.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

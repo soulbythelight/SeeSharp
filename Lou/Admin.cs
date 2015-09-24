@@ -59,7 +59,7 @@ namespace Lou
             panelAddUser.Location = new Point(54, 195);
             SELF.PREPARE("localhost", "bulsu_db", "root", "");
             try {
-                serialPort1.PortName = "COM16";
+                serialPort1.PortName = "COM15";
                 serialPort1.BaudRate = 9600;
                 serialPort1.Parity = Parity.None;
                 serialPort1.StopBits = StopBits.One;
@@ -86,12 +86,10 @@ namespace Lou
                 btnAddUserIsClick = true;
             }
         }
-
         private void label3_Click(object sender, EventArgs e)
         {
 
         }
-
         private void button7_Click(object sender, EventArgs e)
         {
             if (btnAddUserIsClick)
@@ -105,7 +103,6 @@ namespace Lou
                 btnAddUserIsClick = false;
             }
         }
-
         private void btnViewDTR_Click(object sender, EventArgs e)
         {   
             if (!btnViewDTRIsClick)
@@ -115,7 +112,6 @@ namespace Lou
                 btnViewDTRIsClick = true;
             }
         }
-
         private void button9_Click(object sender, EventArgs e)
         { 
             if (btnViewDTRIsClick)
@@ -134,7 +130,6 @@ namespace Lou
             panelViewDTRMonth.Refresh();
             panelIndividualDTR.Refresh();
         }
-
         private void btnDTRMonth_Click(object sender, EventArgs e)
         {
             if(btnAddUserIsClick) {
@@ -155,7 +150,6 @@ namespace Lou
             }
 
         }
-
         private void btnbackDTRMonth_Click(object sender, EventArgs e)
         {
             Util.Animate(panelViewDTRMonth, Util.Effect.Slide, 150, 180); for (int i = 768; i > 111; i = i - 10)
@@ -164,7 +158,6 @@ namespace Lou
                 panelMain.Refresh();
             }
         }
-
         private void btnBackIndividual_Click(object sender, EventArgs e)
         {
             Util.Animate(panelIndividualDTR, Util.Effect.Slide, 150, 180); for (int i = 768; i > 111; i = i - 10)
@@ -173,7 +166,6 @@ namespace Lou
                 panelMain.Refresh();
             }
         }
-
         private void button11_Click(object sender, EventArgs e)
         {
             if (btnAddUserIsClick)
@@ -198,7 +190,6 @@ namespace Lou
                 Util.Animate(panelIndividualDTR, Util.Effect.Slide, 150, 180);
             }
         }
-
         private void btnOpenFile_Click(object sender, EventArgs e)
         {
 
@@ -209,9 +200,6 @@ namespace Lou
                 if (openFileDialog.ShowDialog() == DialogResult.OK) {
                     pictureBoxProfile.BackgroundImage = new Bitmap(openFileDialog.FileName);
                 }
-                // store file path in some field or textbox...
-                //textBox1.Text = openFileDialog.FileName;
-
         }
  
         private void btnTakePhoto_Click(object sender, EventArgs e)
@@ -225,12 +213,13 @@ namespace Lou
         }
         private void serialPort1_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
         {
-            if (txtRFID.Text.Length >= 9) {
-                serialPort1.Close();
-            } else {
-                DispString = serialPort1.ReadExisting();
-                this.Invoke(new EventHandler(DisplayText));
-            }
+            //if (txtRFID.Text.Length >= 9) {
+            //    serialPort1.Close();
+            //} else {
+            //    DispString = serialPort1.ReadExisting();
+            //    this.Invoke(new EventHandler(DisplayText));
+            //}
+            Console.WriteLine(serialPort1.ReadExisting());
         }
         private void DisplayText(object sender, EventArgs e)
         {
@@ -256,8 +245,6 @@ namespace Lou
                             panelAddUserisValidated = true;
                         }  
                     }
-
-                    
                 } else {
                     AddTextChangedHandler(c);
                 }
@@ -276,7 +263,7 @@ namespace Lou
                                 { "account_name", txtAccountName.Text},
                                 { "password", txtPassword.Text}
                             }
-                         );
+                         ); 
                     SELF._query = @"INSERT INTO user_details(user_rfid, first_name, middle_initlal, last_name, gender, account_picture) VALUES (@a,@b,@c,@d,@e,@f)";
                     SELF._command = new MySql.Data.MySqlClient.MySqlCommand(SELF._query, SELF._connect);
                     SELF._command.Parameters.AddWithValue("@a", txtRFID.Text);
@@ -289,6 +276,7 @@ namespace Lou
                     lblMessageBox.Text = "Account created :)";
                     popUpMesssageBox();
                     clearAllInPanelAdduser();
+                    SELF._command.Parameters.Clear();
                 }
             } else {
                 lblMessageBox.Text = "Complete all required fields";
@@ -467,6 +455,14 @@ namespace Lou
 
         }
 
- 
+        private void timer1_Tick_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtRFID_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
